@@ -11,4 +11,13 @@ const list = ['java','kotlin','android']
 app.get('/pensonagens', function (req, res){
   res.send(list)
 })
+
+// EndPoint Read by id [GET] /pensonagens:id
+app.get('/pensonagens/:id', function (req, res){
+    const id = req.params.id
+
+    const item = list[id - 1]
+    
+    res.send(item)
+})
 app.listen(3000)
