@@ -20,4 +20,12 @@ app.get('/pensonagens/:id', function (req, res){
     
     res.send(item)
 })
+
+// EndPoint Create [POST] /pensonagens
+app.post('/pensonagens', function (req, res){
+  const novoitem = 'HTML'
+  list.push(novoitem)
+  res.send(list)
+
+})
 app.listen(3000)
