@@ -1,3 +1,38 @@
+const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+const lista = ['Java', 'Kotlin', 'Android']
+//             0        1         2
+
+// Endpoint Read All [GET] /personagem
+app.get('/personagem', function (req, res) {
+  res.send(lista.filter(Boolean))
+})
+
+// Endpoint Read By ID [GET] /personagem/:id
+app.get('/personagem/:id', function (req, res) {
+  // Acessamos o parâmetro de rota ID
+  const id = req.params.id
+
+  // Acessa o item na lista usando o ID - 1
+  const item = lista[id - 1]
+
+  // Checamos se o item obtido é existente
+  if (!item) {
+    return res.status(404).send('Item não encontrado.')
+  }
+
+  // Enviamos o item como resposta
+  res.send(item)
+})
+
+// Sinalizo para o Express que estamos usando JSON no Body
+app.use(express.json())
+
 // Endpoint Create [POST] /personagem
 app.post('/personagem', function (req, res) {
   // Acessamos o Body da Requisição
@@ -74,3 +109,5 @@ app.delete('/personagem/:id', function (req, res) {
   // Enviamos uma mensagem de sucesso
   res.send('Item removido com sucesso: ' + id)
 })
+
+app.listen(3000)
