@@ -33,3 +33,22 @@ Aplicar validações nas entradas para as operações de criação e atualizaç�
 Aplicação de Status HTTP:
 
 Utilizar os códigos de status HTTP corretos em resposta às requisições.
+
+## Projeto Missão 3
+
+### MongoDB: Intro e Implementação
+Tarefas
+Setup do MongoDB Cloud Atlas:
+
+Criar e configurar um cluster no MongoDB Cloud Atlas.
+
+Conectar o MongoDB Compass ao cluster criado no Cloud Atlas.
+
+Operações CRUD no Cloud:
+
+Realizar operações CRUD no cluster do MongoDB Cloud Atlas através do Compass.
+
+Integração com Node.js:
+
+Modificar a aplicação existente para realizar operações CRUD utilizando o banco de dados no MongoDB Cloud Atlas.
+
