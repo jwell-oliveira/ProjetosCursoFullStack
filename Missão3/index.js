@@ -1,5 +1,22 @@
 const express = require('express')
+const { MongoClient } = require('mongodb')
 const app = express()
+
+// Preparamos as informações de acesso ao banco de dados
+const dbUrl = 'mongodb+srv://admin:f19LN1bTBXIJ4WGW@cluster0.xzai4fr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+
+const dbName = 'mongodb-intro-e-implementacao'
+
+// Criamos a função Main()
+async function main (){
+    // Realizamos a conexao com banco de dados
+    const client = new MongoClient(dbUrl)
+    console.log('conectando ao banco de dados...')
+    await client.connect()
+    console.log('banco de dados conectado com sucesso')
+
+    const db = client.db(dbName)
+    const collection = db.collection('personagem')
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -106,8 +123,10 @@ app.delete('/personagem/:id', function (req, res) {
   // Remover o item da lista usando o ID - 1
   delete lista[id - 1]
 
-  // Enviamos uma mensagem de sucesso
-  res.send('Item removido com sucesso: ' + id)
+  //s.send('Item removido com sucesso: ' + id)
 })
 
 app.listen(3000)
+}
+// Chamamos a função Main()
+main()
